@@ -10,7 +10,7 @@
 - **User-Friendly Interface**: Simple and intuitive design for easy navigation and interaction.
 
 ## Demo Video
-[Click here to watch the demo video](https://drive.google.com/file/d/1BTieIYTUzErnKk0H0uFPskcm4Qm_s4zf/view?usp=sharing)
+[Click here to watch the demo video](https://drive.google.com/file/d/1YASp6Wcij33Gp3hny6zTHte46K8SNt3w/view?usp=sharing)
 
 ## How It Works
 1. **Upload an Image**: Users upload an image of their dish (jpeg, png, jpg).
