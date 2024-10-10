@@ -1,3 +1,4 @@
+
 # CookAI 🍳
 
 **CookAI** is a user-friendly web application that allows you to upload an image of a dish and receive its name, ingredients, calories, and a relevant recipe tutorial from YouTube. Built using Streamlit, Clarifai for image recognition, and TheMealDB for recipe information, CookAI supports a wide range of continental dishes.
@@ -7,6 +8,9 @@
 - **Recipe Retrieval**: Fetches detailed recipe information, including ingredients and instructions, from TheMealDB.
 - **YouTube Integration**: Provides a link to a YouTube video tutorial for the identified dish.
 - **User-Friendly Interface**: Simple and intuitive design for easy navigation and interaction.
+
+## Demo Video
+[Click here to watch the demo video](https://1drv.ms/v/c/27e71c3fb22b4e67/Ef53og4Xy0VCrtQIENsDWScBybnbUdOcLI-KBxNjAESAyg?e=eQZyIm)
 
 ## How It Works
 1. **Upload an Image**: Users upload an image of their dish (jpeg, png, jpg).
