@@ -1,16 +1,14 @@
 import streamlit as st
-from clarifai.client.model import Model
+from clarifai.rest import ClarifaiApp
 from PIL import Image
 import requests
 from io import BytesIO
 from googleapiclient.discovery import build
 
-
 # API Keys
 clarifai_pat = "5a2c5e444b9b40ab9e4f60f950e71bfd"  # Your Clarifai PAT
 themealdb_api_key = "1"  # Test API Key for TheMealDB
 google_api_key = 'AIzaSyAdj0qB_7Z5LuTosBkI_oY47USIZ_MtvVU'  # Your YouTube API Key
-
 
 # YouTube Search Function
 def get_youtube_video(dish_name):
@@ -25,21 +23,19 @@ def get_youtube_video(dish_name):
     video_url = f"https://www.youtube.com/watch?v={video_id}"
     return video_url
 
-
 # Clarifai API Function to Recognize Dish from Image (Using Bytes)
 def recognize_dish(image_bytes):
-    model_url = "https://clarifai.com/clarifai/main/models/food-item-recognition"
-    model = Model(url=model_url, pat=clarifai_pat)
+    app = ClarifaiApp(api_key=clarifai_pat)
+    model = app.models.get('food-item-recognition')
    
     # Call Clarifai's predict method
-    model_prediction = model.predict_by_bytes(image_bytes, input_type="image")
+    model_prediction = model.predict_by_bytes(image_bytes)
    
-    if model_prediction and model_prediction.outputs:
-        return model_prediction.outputs[0].data.concepts[0].name  # Access name correctly
+    if model_prediction and model_prediction['outputs']:
+        return model_prediction['outputs'][0]['data']['concepts'][0]['name']  # Access name correctly
     else:
         st.error("Error in fetching data from Clarifai API.")
         return None
-
 
 # TheMealDB API Function to Get Recipe Details
 def get_recipe_data(dish_name):
@@ -51,22 +47,18 @@ def get_recipe_data(dish_name):
         st.error(f"No recipe found for {dish_name}.")
         return None
 
-
 # Streamlit App Interface
 st.title('CookAI 🍳')
 st.write("## Upload an image of your dish to get its name, ingredients, calories, recipe, and a YouTube tutorial!")
 st.write("### Supports Continental dishes")
 
-
 # File uploader
 uploaded_file = st.file_uploader("Upload an image of the dish (jpeg, png, jpg):", type=["jpeg", "png", "jpg"])
-
 
 if uploaded_file is not None:
     # Display uploaded image
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Image', use_column_width=True)
-
 
     # Convert image to bytes for prediction
     try:
@@ -95,7 +87,6 @@ if uploaded_file is not None:
                     if ingredient:
                         st.write(f"- {ingredient} ({measure})")
 
-
                 # Provide recipe instructions
                 st.write("### Recipe:")
                 st.write(recipe_data['strInstructions'])
@@ -111,9 +102,6 @@ if uploaded_file is not None:
     except Exception as e:
         st.error(f"An error occurred while processing the image: {e}")
 
-
 # Footer credits
 st.markdown("---")
 st.markdown("#### Created by Jalaj and Ishan 👨‍🍳")
-
-
