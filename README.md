@@ -29,6 +29,15 @@
 - **TheMealDB API Key**: This project uses a test API key.
 - **Google YouTube API Key**: Replace the placeholder with your Google YouTube API key.
 
+![image](https://github.com/user-attachments/assets/9febc4a6-3d59-40a1-b175-f01656e4cee9)
+![image](https://github.com/user-attachments/assets/c7c2fdb9-2187-4b7e-8ead-2da1ebbab5c7)
+![image](https://github.com/user-attachments/assets/748eb667-26ed-4143-9706-10c9bd97cd70)
+![image](https://github.com/user-attachments/assets/acad7d17-af2e-4e52-908d-62b69b035e7c)
+
+
+
+
+
 ## Setup & Installation
 To run this application locally, follow these steps:
 
