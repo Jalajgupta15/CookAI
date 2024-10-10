@@ -1,4 +1,4 @@
-mport streamlit as st
+import streamlit as st
 from clarifai.client import ClarifaiApp
 from PIL import Image
 import requests
