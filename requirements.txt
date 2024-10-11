@@ -1,1 +1,5 @@
 streamlit
+clarifai
+Pillow
+requests
+google-api-python-client
